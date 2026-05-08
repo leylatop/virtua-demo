@@ -1,0 +1,280 @@
+:root {
+  color: #18202f;
+  background: #eef2f7;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  min-width: 320px;
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.app {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.chat-panel {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #e6ebf2;
+  padding: 16px 20px;
+  background: #f9fbff;
+}
+
+.chat-header h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.chat-header p {
+  margin: 4px 0 0;
+  color: #697386;
+  font-size: 14px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-actions button {
+  height: 32px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  padding: 0 12px;
+  color: #1f2937;
+  background: #fff;
+  cursor: pointer;
+}
+
+.header-actions button:hover {
+  border-color: #2563eb;
+  color: #1d4ed8;
+}
+
+.header-actions span {
+  border: 1px solid #c7d2fe;
+  border-radius: 999px;
+  padding: 4px 10px;
+  color: #3730a3;
+  background: #eef2ff;
+  font-size: 13px;
+}
+
+.message-list {
+  min-height: 0;
+  padding: 16px;
+  overflow: auto;
+  background:
+    linear-gradient(#f8fafc 0 0) padding-box,
+    repeating-linear-gradient(
+      135deg,
+      rgb(226 232 240 / 36%) 0,
+      rgb(226 232 240 / 36%) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+}
+
+.auto-hide-scrollbar-container {
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin;
+}
+
+.auto-hide-scrollbar-container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.auto-hide-scrollbar-container::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-color: transparent;
+  background-clip: content-box;
+}
+
+.auto-hide-scrollbar-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.auto-hide-scrollbar-container.scrollbar-visible {
+  scrollbar-color: rgb(148 163 184 / 72%) transparent;
+}
+
+.auto-hide-scrollbar-container.scrollbar-visible::-webkit-scrollbar-thumb {
+  background-color: rgb(148 163 184 / 72%);
+}
+
+.auto-hide-scrollbar-container.scrollbar-visible::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(100 116 139 / 84%);
+}
+
+.message {
+  display: flex;
+  padding: 6px 0;
+}
+
+.message-me {
+  justify-content: flex-end;
+}
+
+.message-assistant {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: min(88%, 920px);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px 8px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(15 23 42 / 8%);
+}
+
+.message-me .message-bubble {
+  border-color: #bfdbfe;
+  color: #0f172a;
+  background: #dbeafe;
+}
+
+.message-bubble p {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.message-bubble time {
+  display: block;
+  margin-top: 6px;
+  color: #7c8798;
+  font-size: 12px;
+  text-align: right;
+}
+
+.message-image {
+  display: block;
+  width: min(320px, 100%);
+  height: 180px;
+  margin-top: 10px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #d9e0ea;
+}
+
+.scroll-bottom-button {
+  position: absolute;
+  right: 20px;
+  bottom: 78px;
+  z-index: 1;
+  height: 36px;
+  border: 1px solid #cfd8e3;
+  border-radius: 999px;
+  padding: 0 14px;
+  color: #1f2937;
+  background: #fff;
+  box-shadow: 0 8px 20px rgb(15 23 42 / 14%);
+  cursor: pointer;
+}
+
+.scroll-bottom-button:hover {
+  border-color: #2563eb;
+  color: #1d4ed8;
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  border-top: 1px solid #e6ebf2;
+  padding: 14px 16px;
+  background: #fff;
+}
+
+.composer textarea {
+  min-height: 42px;
+  max-height: 120px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #111827;
+  resize: vertical;
+  outline: none;
+}
+
+.composer textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 16%);
+}
+
+.composer button {
+  height: 42px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 18px;
+  color: #fff;
+  background: #2563eb;
+  cursor: pointer;
+}
+
+.composer button:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 640px) {
+  .app {
+    width: 100%;
+  }
+
+  .chat-panel {
+    height: 100%;
+  }
+
+  .message-bubble {
+    max-width: 86%;
+  }
+
+  .composer {
+    grid-template-columns: 1fr;
+  }
+
+  .composer button {
+    width: 100%;
+  }
+}
